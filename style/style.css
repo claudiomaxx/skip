@@ -1,31 +1,227 @@
-body {
-    background: #eee !important;
-}
-
-.search-bar {
+* {
+    font: 100% 'Roboto', sans-serif;
+    box-sizing: border-box; }
+  
+  html, body {
+    height: 100%; }
+  
+  body {
+    background: #eee; }
+  
+  body, h1, h2, h3, h4, h5, h6, ul, li {
+    margin: 0;
+    padding: 0; }
+  
+  .tm-flex-col {
+    display: flex;
+    height: 100%; }
+  
+  #tm-header {
+    background: #1E88E5;
+    color: #fff;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    #tm-header h1 {
+      font-size: 1.4rem; }
+  
+  #tm-sidemenu {
+    width: 3.5rem;
+    flex: 'flex-grow';
+    background: #fff; }
+    #tm-sidemenu ul > li {
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0 0;
+      display: block; }
+      #tm-sidemenu ul > li a {
+        color: #1E88E5; }
+  
+  #tm-content {
     width: 100%;
-    margin: 20px 0;
+    padding: 1rem;
+    margin: 0 auto; }
+  
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 1rem; }
+  
+  .tm-box {
+    background: #fff;
+    padding: 1.5rem;
+    box-shadow: 0px 0px 15px #ddd;
+    border: solid 1px #fff;
+    margin-bottom: 1rem; }
+  
+  .tm-box--header {
+    color: #1E88E5; }
+  
+  input, button, textarea, select {
+    background: #fff;
+    border: none;
+    background: #efefef;
+    padding: 0.8rem;
+    color: #333 !important;
+    border-radius: 0.0rem;
+    font-size: 0.9rem; }
+  
+  button {
+    font-size: 0.8rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.1rem;
+    font-weight: bold;
+    text-transform: uppercase; }
+  
+  .form-element {
+    margin-bottom: 0.5rem; }
+  
+  .flex-container {
+    display: flex;
+    flex-direction: row; }
+  
+  .flex-center {
+    align-items: center; }
+  
+  .col-24 {
+    width: 100%; }
+  
+  .col-23 {
+    width: 95.8333333333%; }
+  
+  .col-22 {
+    width: 91.6666666667%; }
+  
+  .col-21 {
+    width: 87.5%; }
+  
+  .col-20 {
+    width: 83.3333333333%; }
+  
+  .col-19 {
+    width: 79.1666666667%; }
+  
+  .col-18 {
+    width: 75%; }
+  
+  .col-17 {
+    width: 70.8333333333%; }
+  
+  .col-16 {
+    width: 66.6666666667%; }
+  
+  .col-15 {
+    width: 62.5%; }
+  
+  .col-14 {
+    width: 58.3333333333%; }
+  
+  .col-13 {
+    width: 54.1666666667%; }
+  
+  .col-12 {
+    width: 50%; }
+  
+  .col-11 {
+    width: 45.8333333333%; }
+  
+  .col-10 {
+    width: 41.6666666667%; }
+  
+  .col-9 {
+    width: 37.5%; }
+  
+  .col-8 {
+    width: 33.3333333333%; }
+  
+  .col-7 {
+    width: 29.1666666667%; }
+  
+  .col-6 {
+    width: 25%; }
+  
+  .col-5 {
+    width: 20.8333333333%; }
+  
+  .col-4 {
+    width: 16.6666666667%; }
+  
+  .col-3 {
+    width: 12.5%; }
+  
+  .col-2 {
+    width: 8.3333333333%; }
+  
+  .col-1 {
+    width: 4.1666666667%; }
+  
+  .pad-1 {
+    padding: 1rem; }
+  
+  .col {
+    width: auto; }
+  
+  form {
+    width: 100%; }
+  
+  button:disabled {
+    background: #eee; }
+  
+  .btn--primary {
+    background-color: #1E88E5 !important;
+    color: #fff !important; }
+  
+  .btn--none {
+    background: none !important; }
+  
+  .tm-btn-bar {
+    text-align: right; }
+  
+  li {
+    list-style: none; }
+  
+  .list li {
+    padding: 1rem 0;
+    border: solid 1px #eee;
+    border-width: 0 0 1px 0; }
+  
+  .list li:last-child {
+    border: none; }
+  
+  .tag {
+    background: #eee;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+    margin-right: 0.5rem; }
+  
+  .ta-right {
+    text-align: right; }
+  
+  .ta-center {
+    text-align: center; }
+  
+  .tx-grey {
+    color: #777; }
+  
+  .tx-primary {
+    color: #1E88E5; }
+  
+  .tx-success {
+    color: #43A047; }
+  
+  .tx-warning {
+    color: #FF9800; }
+  
+  .bg-warning {
+    background: #FF9800; }
+  
+  .desc {
+    font-size: 0.8rem;
+    color: #777; }
+  
+  .empty-list {
+    font-size: 1.5rem;
+    color: #777;
     text-align: center;
-}
-
-.search-bar input {
-    width: 75%;
-}
-
-.video-item img {
-    max-width: 64px;
-}
-
-.video-detail .details {
-    margin-top: 10px;
-    padding: 10px;
-    border: solid 1px #ddd;
-}
-
-.list-group-item {
-    cursor: pointer;
-}
-
-.list-group-item:hover {
-    background-color: #eee;
-}
+    padding: 2rem 0 }
