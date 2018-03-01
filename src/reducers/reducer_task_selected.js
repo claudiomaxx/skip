@@ -1,7 +1,13 @@
-export default function (state, action) {
-    return {
-        id: 1,
-        title: 'Create something amazing',
-        description: 'Build a builder that builds something amazing'
-    };
+export default function (state = null, action) {
+    switch (action.type) {
+        case 'TASK_SELECTED':
+            return action.payload;
+            break;
+    
+        default:
+            break;
+
+        }
+        
+    return state;
 };
