@@ -1,9 +1,12 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import TaskListReducer from './reducer_task_list';
-import TaskSelectedReducer from './reducer_task_selected';
+import { reducer as FormReducer } from 'redux-form';
+
+import ReducerTask from './reducer_task';
+import ReducerDepartment from './reducer_department';
 
 export default combineReducers({
-    taskList: TaskListReducer,
-    taskSelected: TaskSelectedReducer
+    taskList: ReducerTask,
+    departmentList: ReducerDepartment,
+    form: FormReducer
 });
