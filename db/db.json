@@ -1,0 +1,46 @@
+{
+  "departments": [
+    {
+      "name": "Marketing",
+      "id": 1
+    },
+    {
+      "name": "IT",
+      "id": 2
+    },
+    {
+      "name": "Finance",
+      "id": 3
+    }
+  ],
+  "tasks": [
+    {
+      "departmentId": "2",
+      "title": "Create something using react zzz",
+      "description": "Surprises me",
+      "status": "Finished",
+      "id": 2
+    },
+    {
+      "title": "React Native for Beginners",
+      "description": "Surprises me",
+      "departmentId": "1",
+      "status": "Started",
+      "id": 3
+    },
+    {
+      "title": "AngularJS for the rescue",
+      "departmentId": "3",
+      "description": "I dont believe",
+      "status": "Started",
+      "id": 4
+    },
+    {
+      "title": "Create something using react",
+      "description": "This is awesome!",
+      "departmentId": "2",
+      "status": "Started",
+      "id": 5
+    }
+  ]
+}
