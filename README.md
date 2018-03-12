@@ -3,7 +3,6 @@
 This project uses:
 - React
 - Redux
-- react-redux
 - react-router
 - redux-form
 - axios
