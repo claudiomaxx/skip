@@ -38,6 +38,7 @@ class ProductList extends Component {
         return (
             <div>
                 <div id="skip-content" className="col-xs-6">
+                    <h4>Product List</h4>
                     <ul className="list">
                         {_.map(this.props.list, this.renderProduct)}
                     </ul>
