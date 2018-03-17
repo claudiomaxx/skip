@@ -1,0 +1,14 @@
+#skip-navbar {
+    background: #BE2C2C;
+    padding: 1rem;
+}
+
+#skip-navbar h1 {
+    color: #fff;
+    font-size: 3rem;
+    margin: 0;
+}
+
+#skip-search-bar {
+    width: 100%;
+}
