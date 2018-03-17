@@ -1,39 +1,38 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom'
 
 import { signupAction } from './customer-auth-action'
+import InputText from '../../components/input-text' 
 
 class CustomerAuthSignup extends Component {
 
-    constructor(props) {
-        super(props)
-    }
-
-    renderField(field) {
-        return (
-            <input type={field.type} placeholder={field.placeholder} {...field.input} />
-        )
-    }
-
     onSubmit(form) {
         this.props.signupAction(form, response => {
-            console.log(response, this.props.history)
-            //this.props.history.push('/place-order');
+
+            // FIXME async problem
+            setTimeout(() => {
+                this.props.history.push('/products')
+
+            }, 300)
+
+            return response
         });
     }
 
     render() {
         return (
-            <div>
+            <div className="form-card">
                 <h3>Sign up</h3>
                 <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-                    <Field name="name" placeholder="Name" type="text" component={this.renderField} />
-                    <Field name="email" placeholder="Email" type="text" component={this.renderField} />
-                    <Field name="password" placeholder="Password" type="password" component={this.renderField} />
-                    <Field name="address" placeholder="Address" type="text" component={this.renderField} />
+                    <Field name="name" placeholder="Name" type="text" component={InputText} />
+                    <Field name="email" placeholder="Email" type="text" component={InputText} />
+                    <Field name="password" placeholder="Password" type="password" component={InputText} />
+                    <Field name="address" placeholder="Address" type="text" component={InputText} />
 
-                    <button type="submit">Enter</button>
+                    <button type="submit" className="btn btn-primary">Enter</button>
+                    <Link to="/" className="btn btn-secondary">Back</Link>
                 </form>
             </div>
         )
@@ -41,7 +40,26 @@ class CustomerAuthSignup extends Component {
 }
 
 function validate(form) {
-    return {}
+
+    const ret = {};
+
+    if (!form.name) {
+        ret.name = 'Name is required'
+    }
+
+    if (!form.email) {
+        ret.email = 'Email is required'
+    }
+
+    if (!form.password) {
+        ret.password = 'Password is required'
+    }
+
+    if (!form.address) {
+        ret.address = 'Address is required'
+    }
+
+    return ret
 }
 
 export default reduxForm({

@@ -9,7 +9,9 @@ const CUSTOMER_URL = `${BASE_URL}/v1/Customer`
 
 export function signupAction(customer, callback) {
 
-    const request = axios.post(`${CUSTOMER_URL}`, customer).then(response => callback && callback(response));
+    const request = axios.post(`${CUSTOMER_URL}`, customer).then(response => callback && callback(response.data));
+
+    console.log('request', request)
 
     return {
         type: SIGNUP,
@@ -18,9 +20,13 @@ export function signupAction(customer, callback) {
 
 }
 
-export function loginAction(email, password) {
+export function loginAction(customer, callback) {
 
-    const request = axios.post(`${CUSTOMER_URL}/auth?email=${email}&password=${password}`, {})
+    console.log('llllllllll', customer)
+
+    const request = axios
+        .post(`${CUSTOMER_URL}/auth?email=${customer.email}&password=${customer.password}`, {})
+        .then(response => callback && callback(response.data) )
 
     return {
         type: LOGIN,

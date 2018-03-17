@@ -12,3 +12,16 @@
 #skip-search-bar {
     width: 100%;
 }
+
+.message--error {
+    color: red
+}
+
+li {
+    list-style: none
+}
+
+.form-card {
+    margin: 5rem auto;
+    width: 50%
+}

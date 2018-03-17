@@ -1,13 +1,11 @@
-import axios from 'axios'
-
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
-export function addToCartAction(productId) {
+export function addToCartAction(product) {
 
     return {
         type: ADD_TO_CART,
-        payload: productId
+        payload: product
     }
 
 }

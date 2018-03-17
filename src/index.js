@@ -25,7 +25,8 @@ ReactDOM.render(
                     <Route path="/customer/signup" component={CustomerAuthSignup} />
                     <Route path="/customer/login" component={CustomerAuthLogin} />
                     <Route path="/order" component={Order} />
-                    <Route path="/" component={ProductList} />
+                    <Route path="/products" component={ProductList} />
+                    <Route path="/" component={CustomerAuthLogin} />
                 </Switch>
             </div>
         </BrowserRouter>

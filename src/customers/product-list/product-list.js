@@ -27,7 +27,9 @@ class ProductList extends Component {
                 <h5>{product.name}</h5>
                 <span>{product.description}</span>
                 <span>{product.price}</span>
-                <button onClick={() => this.props.addToCartAction(product.id)}>Add to cart</button>
+                <div>
+                    <button onClick={() => this.props.addToCartAction(product)} className="btn">Add to cart</button>
+                </div>
             </li>
         )
     }
@@ -36,7 +38,7 @@ class ProductList extends Component {
         return (
             <div>
                 <div id="skip-content" className="col-xs-6">
-                    <ul>
+                    <ul className="list">
                         {_.map(this.props.list, this.renderProduct)}
                     </ul>
                 </div>
