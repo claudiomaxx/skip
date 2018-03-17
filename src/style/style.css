@@ -21,7 +21,6 @@ li {
     list-style: none
 }
 
-.form-card {
-    margin: 5rem auto;
-    width: 50%
+input {
+    margin-bottom: 1rem !important
 }

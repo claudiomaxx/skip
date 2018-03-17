@@ -21,7 +21,6 @@ class Cart extends Component {
 
         return (
             <li key={id}>
-                <h6>{storeId}</h6>
                 <h5>{name}</h5>
                 <span>{price}</span>
             </li>
@@ -33,7 +32,7 @@ class Cart extends Component {
             return (
                 <div>
                     <h4>Cart</h4>
-                    <ul>
+                    <ul className="list">
                         {_.map(this.props.cart, this.renderProduct)}
                     </ul>
 
