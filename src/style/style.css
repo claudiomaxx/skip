@@ -14,7 +14,9 @@
 }
 
 .message--error {
-    color: red
+    color: #BE2C2C;
+    display: block;
+    padding-bottom: 1rem
 }
 
 li {
@@ -30,4 +32,26 @@ input {
 h4 {
     font-size: 3rem;
     margin-bottom: 2rem
+}
+
+#skip-login {
+    width: 40rem;
+    background: #fff;
+    margin: 5% auto;
+    padding: 4rem 5rem 5rem;
+}
+
+#skip-login .input-group {
+    width: 100%
+}
+
+.button-group {
+    margin-top: 1.5rem
+}
+
+h3 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #BE2C2C;
+    text-transform: uppercase;
 }

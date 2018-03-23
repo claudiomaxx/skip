@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom'
 
 import { signupAction } from './customer-auth-action'
-import InputText from '../../components/input-text' 
+import InputText from '../../components/input-text'
 
 class CustomerAuthSignup extends Component {
 
@@ -23,7 +23,7 @@ class CustomerAuthSignup extends Component {
 
     render() {
         return (
-            <div className="form-card">
+            <div id="skip-login">
                 <h3>Sign up</h3>
                 <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
                     <Field name="name" placeholder="Name" type="text" component={InputText} />
@@ -31,8 +31,10 @@ class CustomerAuthSignup extends Component {
                     <Field name="password" placeholder="Password" type="password" component={InputText} />
                     <Field name="address" placeholder="Address" type="text" component={InputText} />
 
-                    <button type="submit" className="btn btn-primary">Enter</button>
-                    <Link to="/" className="btn btn-secondary">Back</Link>
+                    <div className="button-group">
+                        <button type="submit" className="btn btn-primary">Enter</button>
+                        <Link to="/" className="btn btn-link">Back</Link>
+                    </div>
                 </form>
             </div>
         )
