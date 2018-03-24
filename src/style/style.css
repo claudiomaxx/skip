@@ -5,12 +5,32 @@
 #skip-navbar {
     background: #BE2C2C;
     padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
 }
 
 #skip-navbar h1 {
     color: #fff;
     font-size: 3rem;
     margin: 0;
+}
+
+#skip-navbar--menu {
+    display: flex;
+}
+
+#skip-navbar--menu li a {
+    border: solid 1px #fff;
+    color: #fff;
+    padding: 0.8rem 1rem;
+    margin-left: 0.5rem;
+}
+
+#skip-navbar--menu li a:hover,
+#skip-navbar--menu li a.selected {
+    background: #fff;
+    color: #BE2C2C
 }
 
 #skip-search-bar {
