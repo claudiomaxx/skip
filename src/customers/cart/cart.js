@@ -22,7 +22,7 @@ class Cart extends Component {
         return (
             <li key={id}>
                 <div>
-                    <span>{storeId}</span>
+                    <span>{this.props.stores[storeId].name}</span>
                     <h5>{name}</h5>
                 </div>
                 <span className="product-price">{price.toFixed(2)}</span>
@@ -125,8 +125,10 @@ function validate(form) {
     return ret
 }
 
-function mapStateToProps({ cart, customer }) {
-    return { cart, customer }
+function mapStateToProps({ cart, customer, stores }) {
+    console.log('stores', stores);
+    
+    return { cart, customer, stores }
 }
 
 

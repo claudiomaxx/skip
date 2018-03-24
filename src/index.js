@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ReduxPromise from 'redux-promise';
 
-import reducers from './customers/customer-reducer';
+import reducers from './reducers';
 
 import SkipHeader from './components/skip-header'
 

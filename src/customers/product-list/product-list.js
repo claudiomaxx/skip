@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { fetchProductListAction } from './product-list-actions'
+import { fetchStoresAction } from '../../restaurant/stores-actions'
 import { addToCartAction } from '../cart/cart-actions'
 import Cart from '../cart/cart'
 
@@ -16,8 +17,7 @@ class ProductList extends Component {
     }
 
     componentDidMount() {
-        console.log('component ok');
-
+        this.props.fetchStoresAction()
         this.props.fetchProductListAction()
     }
 
@@ -25,6 +25,7 @@ class ProductList extends Component {
         return (
             <li key={product.id}>
                 <div>
+                    <span>{this.props.stores && this.props.stores[product.storeId].name}</span>
                     <h5>{product.name}</h5>
                     <span>{product.description}</span>
                 </div>
@@ -54,8 +55,8 @@ class ProductList extends Component {
 
 }
 
-function mapStateToProps({ productList }) {
-    return { list: productList }
+function mapStateToProps({ productList, stores }) {
+    return { list: productList, stores }
 }
 
-export default connect(mapStateToProps, { fetchProductListAction, addToCartAction })(ProductList)
+export default connect(mapStateToProps, { fetchProductListAction, addToCartAction, fetchStoresAction })(ProductList)
