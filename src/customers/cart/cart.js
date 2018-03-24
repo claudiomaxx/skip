@@ -21,36 +21,55 @@ class Cart extends Component {
 
         return (
             <li key={id}>
-                <h5>{name}</h5>
-                <span>{price}</span>
+                <div>
+                    <span>{storeId}</span>
+                    <h5>{name}</h5>
+                </div>
+                <span className="product-price">{price.toFixed(2)}</span>
             </li>
         )
     }
 
-    render() {
-        if (Object.keys(this.props.cart).length > 0) {
-            return (
-                <div>
-                    <h4>Cart</h4>
-                    <ul className="list">
-                        {_.map(this.props.cart, this.renderProduct)}
-                    </ul>
+    renderDeliveryForm() {
+        return (
+            <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
+                <hr />
 
-                    <hr />
+                <h4>Delivery info</h4>
 
-                    <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-                        <Field name="contact" placeholder="Contact" type="text" component={InputText} />
-                        <Field name="deliveryAddress" placeholder="Address" type="text" component={InputText} />
+                <Field name="contact" placeholder="Contact" type="text" component={InputText} />
+                <Field name="deliveryAddress" placeholder="Address" type="text" component={InputText} />
 
-                        <div className="control-group">
-                            <button type="submit" className="btn btn-primary">Place order</button>
-                        </div>
-                    </form>
+                <div className="control-group">
+                    <button type="submit" className="btn btn-primary">Place order</button>
                 </div>
-            )
-        } else {
-            return null;
-        }
+            </form>
+        )
+    }
+
+    render() {
+        return (
+            <div>
+                <h4>Cart</h4>
+
+                {this.isCartEmpty() && 'THE CART IS EMPTY'}
+
+                {!this.isCartEmpty() && (
+                    <div>
+                        <ul className="list">
+                            {_.map(this.props.cart, this.renderProduct)}
+                        </ul>
+                        <div>
+                            {this.renderDeliveryForm()}
+                        </div>
+                    </div>
+                )}
+            </div>
+        )
+    }
+
+    isCartEmpty() {
+        return Object.keys(this.props.cart).length === 0
     }
 
     onSubmit(form) {
