@@ -32,9 +32,7 @@ class Cart extends Component {
 
     renderDeliveryForm() {
         return (
-            <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-                <hr />
-
+            <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))} className="skip-form">
                 <h4>Delivery info</h4>
 
                 <Field name="contact" placeholder="Contact" type="text" component={InputText} />

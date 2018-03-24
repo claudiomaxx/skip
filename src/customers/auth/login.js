@@ -28,7 +28,7 @@ class CustomerAuthLogin extends Component {
 
     render() {
         return (
-            <div id="skip-login">
+            <div className="skip-form">
                 <h3>Login</h3>
 
                 <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>

@@ -38,14 +38,14 @@ h4 {
     margin-bottom: 2rem
 }
 
-#skip-login {
+.skip-form {
     width: 40rem;
     background: #fff;
     margin: 5% auto;
     padding: 4rem 5rem 5rem;
 }
 
-#skip-login .input-group {
+.skip-form .input-group {
     width: 100%
 }
 

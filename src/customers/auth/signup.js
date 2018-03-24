@@ -23,7 +23,7 @@ class CustomerAuthSignup extends Component {
 
     render() {
         return (
-            <div id="skip-login">
+            <div className="skip-form">
                 <h3>Sign up</h3>
                 <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
                     <Field name="name" placeholder="Name" type="text" component={InputText} />
