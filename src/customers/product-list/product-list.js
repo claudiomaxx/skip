@@ -40,7 +40,7 @@ class ProductList extends Component {
                     </div>
                     <div className="product-add-cart">
                         <span className="product-price">{product.price.toFixed(2)}</span>
-                        <button onClick={() => this.props.addToCartAction(product)} className="btn btn-primary"><i className="material-icons">add_shopping_cart</i></button>
+                        <button onClick={() => this.props.addToCartAction(product.id)} className="btn btn-primary"><i className="material-icons">add_shopping_cart</i></button>
                     </div>
                 </li>
             )

@@ -1,18 +1,35 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from './cart-actions'
 
-export default function (state = [], action) {
+export default function (state = {}, action) {
+    
+    const cartItens = { ...state }
 
     switch (action.type) {
         case ADD_TO_CART:
-            return [ ...state, action.payload ];
+
+            if (!cartItens[action.payload]) {
+                cartItens[action.payload] = 0
+            }
+
+            cartItens[action.payload]++
+
+            return cartItens;
+
             break;
 
         case REMOVE_FROM_CART:
-            console.log('not available yet')
+
+            cartItens[action.payload]--;
+
+            if (cartItens[action.payload] <= 0) {
+                delete cartItens[action.payload]
+            }
+
+            return cartItens;
 
         default:
             break;
     }
 
-    return state;
+    return cartItens;
 }

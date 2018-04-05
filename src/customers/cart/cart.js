@@ -6,6 +6,8 @@ import { Field, reduxForm } from 'redux-form';
 import { addToCartAction, removeFromCartAction } from './cart-actions'
 import { orderAction } from '../order/order-actions'
 
+import SelectedProductsSelector from '../selectors/selected-products'
+
 import InputText from '../../components/input-text'
 
 class Cart extends Component {
@@ -18,13 +20,21 @@ class Cart extends Component {
 
     renderProduct(product) {
         const { id, name, price, storeId } = product
+        const quantity = this.props.cart[product.id]
 
         return (
             <li key={id}>
                 <div>
                     <h5>{name}</h5>
                 </div>
+                <div>
+                    { quantity > 0 && <button onClick={() => this.props.removeFromCartAction(product.id)} className="btn btn-icon"><i className="material-icons">remove_circle</i></button> }
+                    {this.props.cart[product.id]}
+                    
+                    <button onClick={() => this.props.addToCartAction(product.id)} className="btn btn-icon"><i className="material-icons">add_circle</i></button>
+                </div>
                 <span className="product-price">{price.toFixed(2)}</span>
+                <span className="product-price">{(quantity * price).toFixed(2)}</span>
             </li>
         )
     }
@@ -54,7 +64,7 @@ class Cart extends Component {
                 {!this.isCartEmpty() && (
                     <div>
                         <ul className="list">
-                            {_.map(this.props.cart, this.renderProduct)}
+                            {_.map(this.props.selectedProducts, this.renderProduct)}
                         </ul>
                         <div>
                             {this.renderDeliveryForm()}
@@ -124,12 +134,16 @@ function validate(form) {
     return ret
 }
 
-function mapStateToProps({ cart, customer }) {
-    return { cart, customer }
+function mapStateToProps(state) {
+    return { 
+        selectedProducts: SelectedProductsSelector(state), // list of selected products
+        cart: state.cart, // save id and quantity
+        customer: state.customer 
+    }
 }
 
 
 export default reduxForm({
     form: 'cartFrm',
     validate
-})(connect(mapStateToProps, { addToCartAction, orderAction })(Cart));
+})(connect(mapStateToProps, { addToCartAction, removeFromCartAction, orderAction })(Cart));
